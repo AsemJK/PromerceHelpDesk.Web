@@ -1,0 +1,25 @@
+﻿.replybutton {
+    position: absolute;
+    font-size: 30px;
+    float: right;
+    top: 10px;
+    margin: 0;
+    left: 15px;
+}
+
+.closeincident {
+    position: absolute;
+    font-size: 30px;
+    float: right;
+    top: 10px;
+    margin: 0;
+    padding: 0;
+    left: 75px;
+}
+
+.modal-dialog {
+    min-width: 80% !important;
+}
+.fs-5 {
+    font-size: 2rem !important;
+}

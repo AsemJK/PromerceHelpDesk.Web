@@ -1,0 +1,98 @@
+﻿@page
+@model PromerceHelpDesk.Web.Pages.Incidents.IndexModel
+@{
+    ViewData["Title"] = "Incidents";
+
+}
+@section Styles {
+    <link href="~/js/datatable-jquery/datatables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="~/css/pages/incident.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="text-decoration-none fs-4" href="/Admin">@_L["Home"]</a></li>
+            <li class="breadcrumb-item text-decoration-none fs-4 active" aria-current="page">@_L["Incidents"]</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="container-fluid mt-5 p-1 border border-warning rounded">
+    <div class="card m-0">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-4">
+                    <h4>@_L["Incidents"]</h4>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-lg" onclick="FillIncidents()">@_L["Reload"]<i class="fa fa-battery text-dark"></i></button>
+                </div>
+                <div class="col-4">
+                    <label for="loadAll" class="form-check-inline fs-4 mt-2">@_L["All"]</label>
+                    <input type="checkbox" id="loadAll" class="form-check-input fs-2 mt-2" />
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <table id="incidents" class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>ID#</th>
+                        <th>Tenant</th>
+                        <th>Subject</th>
+                        <th>Last Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="incidentReplyModal" tabindex="-1" role="dialog" aria-labelledby="incidentReplyModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <input type="hidden" id="hfIncidentId" value="" />
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="form-label">@_L["Resolution"]</label>
+                        <textarea name="resolution" id="txtResolution" class="form-control" value="" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mt-5">
+                        <label for="fleAttachments">@_L["Attachments"]</label>
+                        <input type="file" name="Attachments" class="form-control-file" id="fleAttachments" multiple />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="PostResolution()">@_L["Post"]</button>
+                <button type="button" class="btn btn-danger" onclick="CloseModal()" data-dismiss="modal">@_L["Close"]</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="incidentRepliesModal" tabindex="-1" role="dialog" aria-labelledby="incidentRepliesModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body incidentRepliesModalBody">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="CloseModal()" data-dismiss="modal">@_L["Close"]</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts {
+    <script src="~/js/datatable-jquery/jquery.datatables.min.js"></script>
+    <script src="~/js/datatable-jquery/datatables.bootstrap5.min.js"></script>
+    <script src="~/js/pages/admin/incidents.js" asp-append-version="true"></script>
+}

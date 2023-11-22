@@ -1,0 +1,37 @@
+﻿@page
+@model PromerceHelpDesk.Web.Pages.Admin.IndexModel
+@{
+}
+<style>
+    .row a{
+        color: white;
+        text-align: center;
+    }
+    .row a:link{
+        display: inline-block;
+        background-color: dimgray;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <div class="col-lg-4 m-2">
+                <a class="dropdown-item p-5 my-1" href="/Admin/Tenant">
+                    @_L["Tenants"]
+                </a>
+            </div>
+            <div class="col-lg-4 m-2">
+                <a class="dropdown-item p-5 my-1" href="/Admin/Incidents">
+                    @_L["Incidents"]
+                </a>
+            </div>
+            <div class="col-lg-4 m-2">
+                <a class="dropdown-item p-5 my-1" href="/Admin/Users">
+                    @_L["Users"]
+                </a>
+            </div>
+        }
+    </div>
+</div>

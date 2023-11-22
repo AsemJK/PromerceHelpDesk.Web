@@ -1,0 +1,80 @@
+﻿@page
+@model PromerceHelpDesk.Web.Pages.Admin.Users.IndexModel
+@{
+}
+
+@section Styles {
+    <link href="~/js/datatable-jquery/datatables.bootstrap5.min.css" rel="stylesheet" />
+}
+
+<a href="/admin" class="text-decoration-none"><i class="fa fa-backward fs-3"></i></a>
+
+<div class="container-fluid mt-5 p-3 border border-warning rounded">
+    <div class="row">
+        <h4 class="font-weight-bold">@_L["Add New"]</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form role="form">
+                <div class="form-group">
+                    <label for="UserName">
+                        @_L["User Name"]
+                    </label>
+                    <input type="text" class="form-control" id="UserName" required />
+                </div>
+                <div class="form-group">
+                    <label for="UserPassword">
+                        @_L["User Password"]
+                    </label>
+                    <input type="password" class="form-control" id="UserPassword" required />
+                </div>
+                <div class="form-group">
+                    <label for="UserEmail">
+                        @_L["Email"]
+                    </label>
+                    <input type="text" class="form-control" id="UserEmail" required />
+                </div>
+                <div class="form-group">
+                    <label for="TenantDdl">
+                        @_L["Tenant"]
+                    </label>
+                    <select class="form-control" id="TenantDdl" required>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="UserRole">
+                        @_L["Role"]
+                    </label>
+                    <select class="form-control" id="UserRole" required>
+                        <option value="User">@_L["User"]</option>
+                        <option value="Admin">@_L["Admin"]</option>
+                    </select>
+                </div>
+                <input type="submit" id="btnSave" class="btn btn-primary mt-5" value="@_L["Save"]" />
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <table id="usersTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>@_L["Name"]</th>
+                <th>@_L["Tenant"]</th>
+                <th>@_L["Roles"]</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+
+@section Scripts {
+    <script src="~/js/datatable-jquery/jquery.datatables.min.js"></script>
+    <script src="~/js/datatable-jquery/datatables.bootstrap5.min.js"></script>
+    <script src="~/js/pages/admin/users.js"></script>
+}

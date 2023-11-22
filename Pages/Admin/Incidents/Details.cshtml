@@ -1,0 +1,101 @@
+﻿@page
+@model PromerceHelpDesk.Web.Pages.Admin.Incidents.DetailsModel
+@{
+    ViewData["Title"] = _L["Incidents"] + $"#{Model.Incident.Id}";
+}
+
+@section Styles {
+    <link href="~/css/pages/incident.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="/js/pages/admin/incident-details.js"></script>
+}
+<div class="container">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="text-decoration-none fs-4" href="/Admin">@_L["Home"]</a></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none fs-4" href="/Admin/Incidents">@_L["Incidents"]</a></li>
+            <li class="breadcrumb-item text-decoration-none fs-4 active" aria-current="page"><p class="d-inline">#@Model.Incident.Id</p></li>
+        </ol>
+    </nav>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <label class="form-label"><b> @_L["Description"] </b></label>
+            <textarea name="subject" id="txt_subject" class="form-control" rows="2" cols="auto">@Html.Raw(Model.Incident.Subject)</textarea>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var att in Model.Incident.Attachments)
+        {
+            <div class="col-2">
+                <img src="/files/@att.FileName" height="100%" style='max-width: max-content;' width="100%" onclick="EnlargFile('/files/@att.FileName')" alt="" />
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="form-label my-3 fs-4"><b> @_L["Replies"] </b><span><a href="#" onclick="AddReply(@Model.Incident.Id)"><i class="fa fa-plus mx-3 pt-3 fs-3 d-sm-inline-block"></i></></a></span></label>
+            <div class="list-group">
+                @foreach (var repl in Model.Incident.Resolutions.OrderByDescending(p => p.Id))
+                {
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@repl.UpdateTime</h5>
+                            <small>@repl.UserName</small>
+                        </div>
+                        <p class="mb-1">@repl.ReplyBody</p>
+                        <br />
+                        @foreach (var resAtt in repl.Attachments)
+                        {
+                            <img src="/files/@resAtt.FileName" height="85px" style='max-width: max-content;' width="auto" onclick="EnlargFile('/files/@resAtt.FileName')" alt="" />
+                        }
+                    </a>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="incidentReplyModal" tabindex="-1" role="dialog" aria-labelledby="incidentReplyModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <input type="hidden" id="hfIncidentId" value="" />
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="form-label">@_L["Resolution"]</label>
+                        <textarea name="resolution" id="txtResolution" class="form-control" value="" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group mt-5">
+                        <label for="fleAttachments">@_L["Attachments"]</label>
+                        <input type="file" name="Attachments" class="form-control-file" id="fleAttachments" multiple />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnSaveResolution" onclick="PostResolution()">@_L["Post"]</button>
+                <button type="button" class="btn btn-danger" onclick="CloseModal()" data-dismiss="modal">@_L["Close"]</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="pdfPreviewModal" tabindex="-1" role="dialog" aria-labelledby="pdfPreviewModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <iframe id="pdfIframe" src="" width="100%" height="600px" frameborder="0"></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="CloseModal()" data-dismiss="modal">@_L["Close"]</button>
+            </div>
+        </div>
+
+    </div>
+</div>

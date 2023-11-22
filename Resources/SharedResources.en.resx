@@ -117,10 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="align" xml:space="preserve">
+    <value>right</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Incidents" xml:space="preserve">
+    <value>Incidents</value>
+  </data>
+  <data name="Log in" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Login Form" xml:space="preserve">
+    <value>Login System</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Lost your password?" xml:space="preserve">
+    <value>Lost your password?</value>
+  </data>
+  <data name="NoIncidents" xml:space="preserve">
+    <value>No Incidents</value>
+  </data>
+  <data name="OnProgress" xml:space="preserve">
+    <value>On Progress</value>
+  </data>
   <data name="Privacy" xml:space="preserve">
     <value>Privacy</value>
   </data>
+  <data name="Tenant" xml:space="preserve">
+    <value>Partner</value>
+  </data>
+  <data name="Tenants" xml:space="preserve">
+    <value>Partners</value>
+  </data>
+  <data name="UploadError" xml:space="preserve">
+    <value>Error while uploading file(s)</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>
+  </data>
+  <data name="WelcomeSub" xml:space="preserve">
+    <value>Your assistant for solve system issues</value>
   </data>
 </root>

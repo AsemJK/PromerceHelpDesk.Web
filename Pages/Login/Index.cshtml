@@ -1,34 +1,34 @@
 ﻿@page
 @model Login.IndexModel
 @{
+    ViewData["Title"] = _L["Login"];
 }
-@section Styles{
+@section Styles {
     <link href="css/pages/login.css" rel="stylesheet" asp-append-version="true" />
 }
-@section Scripts{
+@section Scripts {
     <script src="js/pages/login.js" asp-append-version="true"></script>
 }
-
-
 <div class="container">
-    <section id="content">
-        <form asp-antiforgery="true" onsubmit="return false;">
-            <h1>Login Form</h1>
-          
-            <div>
-                <input type="text" asp-for="@Model.LoginModel.UserName" placeholder="Username" name="UserName" required="" id="txtUserName" />
-            </div>
-            <div>
-                <input type="password" asp-for="@Model.LoginModel.Password" placeholder="Password" name="Password" required="" id="txtPassword" />
-            </div>
-            <div>
-                <input type="text" asp-for="@Model.LoginModel.Tenant" placeholder="Tenant Code" name="Tenant" required="" id="txtTenant" />
-            </div>
-            <div>
-                <input type="submit" id="btnLogin" value="Log in" />
-                <a href="#">Lost your password?</a>
-            </div>
-        </form>
-
-    </section><!-- content -->
+    <div class="row">
+        <section id="content">
+            <form asp-antiforgery="true" onsubmit="return false;">
+                <h1>@_L["Login Form"]</h1>
+                <div>
+                    <input type="text" asp-for="@Model.LoginModel.UserName" placeholder="Username" name="UserName" required="" id="txtUserName" onkeydown="EnterPressHandler(event,this)" />
+                </div>
+                <div>
+                    <input type="password" asp-for="@Model.LoginModel.Password" placeholder="Password" name="Password" required="" id="txtPassword" onkeydown="EnterPressHandler(event,this)" />
+                </div>
+                <div>
+                    <input type="text" asp-for="@Model.LoginModel.TenantCode" placeholder="Your Code" name="Tenant" required="" id="txtTenant" onkeydown="EnterPressHandler(event,this)" />
+                </div>
+                <div class="my-5">
+                    <input type="button" class="btn btn-success" id="btnLogin" value="@_L["Log in"]" />
+                    <a href="#">@_L["Lost your password?"]</a>
+                </div>
+            </form>
+        </section><!-- content -->
+    </div>
+    
 </div><!-- container -->

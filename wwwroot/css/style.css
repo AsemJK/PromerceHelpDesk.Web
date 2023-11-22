@@ -1,0 +1,24 @@
+﻿.hidden-column {
+    display: none;
+}
+.table.dataTable td, table.dataTable th{
+    text-align: center !important;
+}
+.navbar {
+     padding-top: 0 !important; 
+     padding-bottom: 0 !important; 
+}
+.card-body {
+    padding: 0.4rem;
+}
+.card-body p {
+    margin: 0.1rem;
+}
+.form-check-input:disabled {
+    color: #000 !important;
+    opacity: 1 !important;
+}
+.form-check-input:disabled ~ .form-check-label, .form-check-input[disabled] ~ .form-check-label {
+    color: #000 !important;
+    opacity: 1 !important;
+}

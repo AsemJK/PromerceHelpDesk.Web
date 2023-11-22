@@ -7,7 +7,26 @@
     <script src="js/pages/index.js" asp-append-version="true"></script>
 }
 
-<div class="text-center">
+<div class="text-center m-lg-5">
+
     <h1 class="display-4">@_L["Welcome"]</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h5 class="display-7 mt-5">@_L["WelcomeSub"]</h5>
+        <br />
+        <br />
+        <a class="btn btn-outline-dark" href="/Login">@_L["Login"] <i class="fa fa-lock"></i> </a>
+    }
+    else
+    {
+        <div class="row my-5 text-center">
+            <a class="page-link" href="/Incidents">
+                @_L["My Incidents"]
+            </a>
+            <a href="/Incidents/Add" class="link-dark my-4">
+                <span class="mx-4"><i class="fa fa-plus-circle fs-3"></i></span>
+            </a>
+        </div>
+    }
 </div>

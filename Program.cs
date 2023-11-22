@@ -8,8 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-        .AddDataAnnotationsLocalization(); ;
+        .AddDataAnnotationsLocalization()
+        ;
 
+#region Authentication
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromHours(1);
@@ -23,6 +25,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.ExpireTimeSpan = TimeSpan.FromHours(1); // Set the cookie expiration time
         options.SlidingExpiration = true; // Renew the expiration time if the user is active
     });
+
+#endregion
+
 
 #region Localization
 const string defaultCulture = "ar";
@@ -39,6 +44,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 builder.Services.AddScoped<ISharedViewLocalizer, SharedViewLocalizer>();
+
 #endregion
 
 var app = builder.Build();

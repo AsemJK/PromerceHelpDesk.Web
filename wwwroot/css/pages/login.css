@@ -110,12 +110,15 @@ form:after {
         margin: 0 20px;
         position: relative
     }
+
         #content form input[name="UserName"] {
             background: #eae7e7 url('/images/user.png') no-repeat left;
         }
+
         #content form input[name="Password"] {
             background: #eae7e7 url('/images/password.png') no-repeat left;
         }
+
         #content form input[name="Tenant"] {
             background: #eae7e7 url('/images/tenant.png') no-repeat left;
         }
@@ -136,7 +139,7 @@ form:after {
             -moz-transition: all 0.5s ease;
             -ms-transition: all 0.5s ease;
             -o-transition: all 0.5s ease;
-            transition: all 0.5s ease;            
+            transition: all 0.5s ease;
             border: 1px solid #c8c8c8;
             color: #777;
             font: 13px Helvetica, Arial, sans-serif;

@@ -1,8 +1,159 @@
 ﻿@page
 @model PrivacyModel
 @{
+    var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    ViewBag.Lang = culture;
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+@if (ViewBag.Lang == "ar")
+{
+    <h1>سياسة الخصوصية</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+    <p>تشرح سياسة الخصوصية هذه كيفية جمع معلوماتك الشخصية واستخدامها ومشاركتها عند زيارتك لموقعنا الإلكتروني أو استخدامك لخدمات المساعدة الذاتية الخاصة بنا.</p>
+
+    <h2>ما هي المعلومات التي نجمعها؟</h2>
+
+    <p>نجمع الأنواع التالية من المعلومات منك:</p>
+
+    <ul>
+        <li>المعلومات الشخصية: وهذا يشمل المعلومات التي تقدمها لنا عند إنشاء حساب أو إرسال تذكرة أو الاتصال بنا للحصول على الدعم. قد يشمل هذا اسمك وعنوان بريدك الإلكتروني ورقم هاتفك ومعلومات الاتصال الأخرى.</li>
+        <li>بيانات الاستخدام: وهي معلومات حول كيفية استخدام موقع الويب وخدمات المساعدة الذاتية. قد يشمل ذلك الصفحات التي تزورها والتذاكر التي ترسلها والإجراءات التي تتخذها.</li>
+        <li>معلومات الجهاز: وهي معلومات حول الجهاز الذي تستخدمه للوصول إلى موقع الويب وخدمات المساعدة الذاتية. قد يشمل هذا عنوان IP الخاص بك ونوع المتصفح ونظام التشغيل.</li>
+    </ul>
+
+    <h2>كيف نستخدم معلوماتك؟</h2>
+
+    <p>نستخدم معلوماتك لـ:</p>
+
+    <ul>
+        <li>توفير موقع الويب وخدمات المساعدة الذاتية والحفاظ عليهما.</li>
+        <li>الرد على طلبات الدعم الخاصة بك.</li>
+        <li>تحسين موقع الويب وخدمات المساعدة الذاتية.</li>
+        <li>حماية موقع الويب وخدمات المساعدة الذاتية من الاحتيال والتعرض للإساءة.</li>
+        <li>الامتثال لالتزاماتنا القانونية.</li>
+    </ul>
+
+    <h2>كيف نشارك معلوماتك؟</h2>
+
+    <p>نشارك معلوماتك مع جهات خارجية فقط على النحو التالي:</p>
+
+    <ul>
+        <li>بموافقتك: سنشارك معلوماتك مع جهات خارجية بموافقتك. على سبيل المثال ، إذا أرسلت تذكرة إلى جهة خارجية ، فقد نشارك معلومات الاتصال الخاصة بك مع تلك الجهة حتى تتمكن من الرد على تذكرتك.</li>
+        <li>مع مزودي الخدمة: نشارك معلوماتك مع مزودي الخدمة من جهات خارجية الذين يساعدوننا في تشغيل موقع الويب وخدمات المساعدة الذاتية. على سبيل المثال ، قد نشارك معلوماتك مع معالج الدفع لمعالجة مدفوعاتك أو مع شركة استضافة ويب لاستضافة موقع الويب الخاص بنا.</li>
+        <li>للامتثال للقانون:** قد نشارك معلوماتك مع جهات خارجية للامتثال للقانون أو اللوائح أو أمر المحكمة أو الاستدعاء.</li>
+        <li>لحماية حقوقنا:** قد نشارك معلوماتك مع جهات خارجية لحماية حقوقنا أو ممتلكاتنا أو سلامتنا.</li>
+    </ul>
+
+    <h2>كيف نحمي معلوماتك؟</h2>
+
+    <p>لقد قمنا بتنفيذ مجموعة متنوعة من تدابير الأمان لحماية معلوماتك من الوصول غير المصرح به أو الاستخدام أو الكشف عنها. تشمل هذه التدابير:</p>
+
+    <ul>
+        <li>التشفير:** نقوم بتشفير معلوماتك الشخصية عند السكون وفي النقل.</li>
+        <li>التحكم في الوصول:** نحن نقيد الوصول إلى معلوماتك الشخصية لموظفينا ومقاولينا الذين يحتاجون إليها لأداء مهام وظيفتهم.</li>
+        <li>مراقبة الأمان:** نراقب أنظمتنا بحثًا عن التهديدات الأمنية والنقاط الضعيفة.</li>
+    </ul>
+
+    <h2>ما هي مدة احتفاظنا بمعلوماتك؟</h2>
+
+    <p>نحتفظ بمعلوماتك طالما كان ذلك ضروريًا لتزويدك بخدماتنا وللامتثال لالتزاماتنا القانونية.</p>
+
+    <h2>خياراتك</h2>
+
+    <p>لديك الخيارات التالية فيما يتعلق بمعلوماتك الشخصية:</p>
+
+    <ul>
+        <li>الوصول: لديك الحق في الوصول إلى معلوماتك الشخصية.</li>
+        <li>التصحيح: لديك الحق في تصحيح أي معلومات شخصية غير دقيقة.</li>
+        <li>الحذف: لديك الحق في حذف معلوماتك الشخصية.</li>
+        <li>التقييد: لديك الحق في تقييد معالجة معلوماتك الشخصية.</li>
+        <li> النقل: لديك الحق في تلقي نسخة من معلوماتك الشخصية بتنسيق قابل للنقل.</li>
+        <li> لممارسة حقوقك ، يرجى الاتصال بنا باستخدام معلومات الاتصال أدناه.</li>
+    </ul>
+    <p>
+        التغييرات على سياسة الخصوصية هذه
+        قد نحدّث سياسة الخصوصية هذه من وقت لآخر.إذا أجرينا أي تغييرات جوهرية على سياسة الخصوصية هذه ، فسننشر إشعارًا على موقعنا الإلكتروني.
+    </p>
+    <h4>اتصل بنا</h4>
+    <p>
+        <a href="mailto:support@smartsware.com">support@smartsware.com</a>
+    </p>
+
+}
+else
+{
+    <h1>Privacy Policy</h1>
+
+    <p>This Privacy Policy explains how we collect, use, and share your personal information when you visit our website or use our helpdesk services.</p>
+
+    <h2>What information do we collect?</h2>
+
+    <p>We collect the following types of information from you:</p>
+
+    <ul>
+        <li>Personal information: This includes information that you provide to us when you create an account, submit a ticket, or contact us for support. This may include your name, email address, phone number, and other contact information.</li>
+        <li>Usage data: This is information about how you use our website and helpdesk services. This may include the pages you visit, the tickets you submit, and the actions you take.</li>
+        <li>Device information: This is information about the device you use to access our website and helpdesk services. This may include your IP address, browser type, and operating system.</li>
+    </ul>
+
+    <h2>How do we use your information?</h2>
+
+    <p>We use your information to:</p>
+
+    <ul>
+        <li>Provide and maintain our website and helpdesk services.</li>
+        <li>Respond to your support requests.</li>
+        <li>Improve our website and helpdesk services.</li>
+        <li>Protect our website and helpdesk services from fraud and abuse.</li>
+        <li>Comply with our legal obligations.</li>
+    </ul>
+
+    <h2>How do we share your information?</h2>
+
+    <p>We share your information with third parties only as follows:</p>
+
+    <ul>
+        <li>With your consent: We will share your information with third parties with your consent. For example, if you submit a ticket to a third-party vendor, we may share your contact information with that vendor so that they can respond to your ticket.</li>
+        <li>With service providers: We share your information with third-party service providers who help us operate our website and helpdesk services. For example, we may share your information with a payment processor to process your payments or with a web hosting company to host our website.</li>
+        <li>To comply with the law: We may share your information with third parties to comply with a law, regulation, court order, or subpoena.</li>
+        <li>To protect our rights: We may share your information with third parties to protect our rights, property, or safety.</li>
+    </ul>
+
+    <h2>How do we protect your information?</h2>
+
+    <p>We have implemented a variety of security measures to protect your information from unauthorized access, use, or disclosure. These measures include:</p>
+
+    <ul>
+        <li>Encryption: We encrypt your personal information at rest and in transit.</li>
+        <li>Access control: We restrict access to your personal information to our employees and contractors who need it to perform their job duties.</li>
+        <li>Security monitoring: We monitor our systems for security threats and vulnerabilities.</li>
+    </ul>
+
+    <h2>How long do we retain your information?</h2>
+
+    <p>We retain your information for as long as necessary to provide you with our services and to comply with our legal obligations.</p>
+
+    <h2>Your choices</h2>
+
+    <p>You have the following choices regarding your personal information:</p>
+
+    <ul>
+        <li>Access: You have the right to access your personal information.</li>
+        <li>Correction: You have the right to correct any inaccurate personal information.</li>
+        <li>Deletion: You have the right to have your personal information deleted.</li>
+        <li>Restriction: You have the right to restrict the processing of your personal information.</li>
+        <li>Portability: You have the right to receive a copy of your personal information in a portable format.</li>
+    </ul>
+
+    <p>To exercise your rights, please contact us using the contact information below.</p>
+
+    <h2>Changes to this Privacy Policy</h2>
+
+    <p>We may update this Privacy Policy from time to time. If we make any material changes to this Privacy Policy, we will post a notice on our website.</p>
+
+    <h2>Contact us</h2>
+    <p>
+        If you have any questions about this Privacy Policy, please contact us at
+    </p>
+    <a href="mailto:support@smartsware.com">support@smartsware.com</a>
+}

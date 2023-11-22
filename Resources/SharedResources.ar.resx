@@ -117,7 +117,211 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add New" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>إدارة</value>
+  </data>
+  <data name="align" xml:space="preserve">
+    <value>left</value>
+  </data>
+  <data name="Attachments" xml:space="preserve">
+    <value>المرفقات</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>الكود</value>
+  </data>
+  <data name="Confirm Password" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
+  <data name="Current Password" xml:space="preserve">
+    <value>كلمة المرور الحالية</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>تمت</value>
+  </data>
+  <data name="Emergency" xml:space="preserve">
+    <value>طارئ</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="Finance" xml:space="preserve">
+    <value>المالية</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="HR" xml:space="preserve">
+    <value>شؤون الموظفين</value>
+  </data>
+  <data name="IncidentNo" xml:space="preserve">
+    <value>رقم المشكلة</value>
+  </data>
+  <data name="Incidents" xml:space="preserve">
+    <value>المشاكل</value>
+  </data>
+  <data name="Invalid Password" xml:space="preserve">
+    <value>كلمة مرور خاطئة</value>
+  </data>
+  <data name="Invalid Tenant" xml:space="preserve">
+    <value>رمز العميل خاطئ</value>
+  </data>
+  <data name="Invalid UserName" xml:space="preserve">
+    <value>إسم مستخدم خاطئ</value>
+  </data>
+  <data name="Log in" xml:space="preserve">
+    <value>دخول</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>دخول</value>
+  </data>
+  <data name="Login Form" xml:space="preserve">
+    <value>الدخول للنظام</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="Lost your password?" xml:space="preserve">
+    <value>هل نسيت كلمة المرور ؟</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>منخفض</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>عام</value>
+  </data>
+  <data name="MainSystemModules" xml:space="preserve">
+    <value>النظام الأساسي</value>
+  </data>
+  <data name="My Incidents" xml:space="preserve">
+    <value>طلباتي</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الإسم</value>
+  </data>
+  <data name="New Incident" xml:space="preserve">
+    <value>إضافة شكوى</value>
+  </data>
+  <data name="New Password" xml:space="preserve">
+    <value>كلمة المرور الجديدة</value>
+  </data>
+  <data name="No Data" xml:space="preserve">
+    <value>لا يوجد بيانات, حاول إعادة تسجيل الدخول للنظام</value>
+  </data>
+  <data name="NoIncidents" xml:space="preserve">
+    <value>لا يوجد طلبات</value>
+  </data>
+  <data name="NOP E-COMMERCE" xml:space="preserve">
+    <value>المتجر الإلكتروني</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>عادي</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>تم</value>
+  </data>
+  <data name="OnProgress" xml:space="preserve">
+    <value>جاري المعالجة</value>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>المدفوعات</value>
+  </data>
+  <data name="POS" xml:space="preserve">
+    <value>نقطة البيع</value>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>نشر</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>الأولوية</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>الخصوصية</value>
+  </data>
+  <data name="PROMERCE ERP DESKTOP" xml:space="preserve">
+    <value>بروميرس - سطح المكتب</value>
+  </data>
+  <data name="PROMERCE MOB APP" xml:space="preserve">
+    <value>بروميرس - تطبيق الجوال</value>
+  </data>
+  <data name="PROMERCE WEB APP" xml:space="preserve">
+    <value>بروميرس - الويب</value>
+  </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>المشتريات</value>
+  </data>
+  <data name="Purchase Invoice" xml:space="preserve">
+    <value>فاتورة مشتريات</value>
+  </data>
+  <data name="Purchase Return" xml:space="preserve">
+    <value>مرتجع مشتريات</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>رد</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>نرجو إكمال الحقول المطلوبة</value>
+  </data>
+  <data name="Resolutions" xml:space="preserve">
+    <value>الردود</value>
+  </data>
+  <data name="Sales" xml:space="preserve">
+    <value>المبيعات</value>
+  </data>
+  <data name="Sales Invoice" xml:space="preserve">
+    <value>فاتورة مبيعات</value>
+  </data>
+  <data name="Sales Order" xml:space="preserve">
+    <value>طلب مبيعات</value>
+  </data>
+  <data name="Sales Return" xml:space="preserve">
+    <value>مرتجع مبيعات</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>الموضوع</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
+  <data name="SubSystemModules" xml:space="preserve">
+    <value>النظام الفرعي</value>
+  </data>
+  <data name="Tenant Code" xml:space="preserve">
+    <value>كود</value>
+  </data>
+  <data name="Tenant Name" xml:space="preserve">
+    <value>المؤسسة</value>
+  </data>
+  <data name="Tenants" xml:space="preserve">
+    <value>شركاء النجاح</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>نقل بضاعة</value>
+  </data>
+  <data name="Update Time" xml:space="preserve">
+    <value>آخر تعديل</value>
+  </data>
+  <data name="UploadError" xml:space="preserve">
+    <value>حصل خطأ أثناء رفع الملفات</value>
+  </data>
+  <data name="Warehouse" xml:space="preserve">
+    <value>مستودع</value>
+  </data>
+  <data name="Warehouses" xml:space="preserve">
+    <value>المستودعات</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>أهلا و سهلا</value>
+  </data>
+  <data name="WelcomeSub" xml:space="preserve">
+    <value>مساعدك في حل مشكلات النظام</value>
   </data>
 </root>

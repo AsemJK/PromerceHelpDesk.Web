@@ -9,12 +9,12 @@ namespace PromerceHelpDesk.Web.Pages.Login
         {
             _configuration = configuration;
         }
-        public LoginModel LoginModel { get; set; }
+        public UserModel LoginModel { get; set; }
         public IConfiguration _configuration { get; }
 
         public void OnGet()
         {
-            LoginModel = new LoginModel();
+            LoginModel = new UserModel();
         }
     }
 }

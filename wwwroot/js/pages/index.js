@@ -1,5 +1,5 @@
 ﻿$(function () {
-
+    moment.locale('en');
 })
 
 

@@ -1,26 +1,38 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 @{
     var culture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+    ViewBag.Dir = AppDomain.CurrentDomain.BaseDirectory;
     var direction = culture == "ar" ? "rtl" : "";
+
 }
 <html lang="@culture">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Promerce Help</title>
+    <link rel="icon" type="image/png" href="~/images/logo80x80.png" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap@(direction == "rtl"? ".rtl" :"").min.css" />
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site@(direction == "rtl"? "-rtl" :"").css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PromerceHelpDesk.Web.styles.css" asp-append-version="true" />
     <link href="~/lib/noty/noty.min.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body dir="@direction">
+    <input type="hidden" id="hfculture" value="@culture" />
+    @if (User.IsInRole("Admin"))
+    {
+        <div style="width: 100%;height: 40px;background-color: red;text-align: center;padding-top: 5px">
+            <a href="/admin" style="color: white;text-decoration: none;display: inline-block;font-weight: bold;margin-top: 5px;">Admin</a>
+        </div>
+    }
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">
-                    <img src="~/images/logo80x80.png" />
+                    <img src="/images/logo-blog-light.png" style="width: 10rem;" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -29,28 +41,62 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">@_L["Home"]</a>
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Incidents/Index">Incidents</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Incidents/Index">@_L["Incidents"]</a>
                             </li>
                         }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">@_L["Privacy"]</a>
                         </li>
+                        <!--Admin -->
+                        @if (1 == 0 && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item mx-4">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">@_L["Admin"]</a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="/Admin/Tenant">
+                                            @_L["Tenants"]
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/Admin/Incidents">
+                                            @_L["Incidents"]
+                                        </a>
+                                    </li>
+                                    <li class="mt-2 border-top">
+                                        <a class="dropdown-item" href="/Admin/Users">
+                                            @_L["Users"]
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
                     </ul>
                 </div>
                 <div class="navbar-collapse collapse justify-content-end">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navLangDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                @Thread.CurrentThread.CurrentUICulture.Name
+                                <img src="@(culture == "ar" ? "/images/ar-lang-w.png" : "/images/en-lang-w.png")" width="80px" alt="" />
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navLangDropdown">
-                                <li><a class="dropdown-item" href="/Lang?culture=ar">العربية</a></li>
-                                <li><a class="dropdown-item" href="/Lang?culture=en">English</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="/Lang?culture=ar">
+                                        العربية
+                                        <img src="/images/ar-lang.png" class="pull-right" width="20px" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/Lang?culture=en">
+                                        English
+                                        <img src="/images/en-lang.png" class="pull-right" width="20px" alt="" />
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -58,32 +104,87 @@
                 <div class="navbar-collapse collapse justify-content-end">
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <a class="nav-link text-dark" href="/Login">Login <i class="fa fa-lock"></i> </a>
+                        <a class="nav-link text-dark" href="/Login">@_L["Login"] <i class="fa fa-lock mx-3"></i> </a>
                     }
                     else
                     {
-                        <a class="nav-link text-dark" href="/Logout">Logout <i class="fa fa-unlock"></i> </a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navAccountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <h5>@User.Identity.Name</h5>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path></svg>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navAccountDropdown">
+                            <li class="my-2">
+                                <a class="dropdown-item" href="/Account/Profile">
+                                    @_L["Profile"]
+                                    <span class="sub-menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5 4.5 6.505 4.5 8.5 6.005 12 8 12z"></path></svg>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="mt-3 border-top">
+                                <a class="dropdown-item text-dark mt-1" href="/Logout">
+                                    @_L["Logout"]
+                                    <span class="sub-menu-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M5.002 21h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-14c-1.103 0-2 .897-2 2v6.001H10V7l6 5-6 5v-3.999H3.002V19c0 1.103.897 2 2 2z"></path></svg>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+
                     }
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted text-center">
         <div class="container">
             &copy; 2023 - PromerceHelpDesk.Web - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
-
+    <script>
+        let localizedStrings = {
+            noData: '@_L["No Data"]',
+            add: '@_L["Add"]',
+            incidentNo: '@_L["IncidentNo"]',
+            attachments: '@_L["Attachments"]',
+            done: '@_L["Done"]',
+            onProgress: '@_L["OnProgress"]',
+            uploadError: '@_L["UploadError"]',
+            ok: '@_L["Ok"]',
+            noIncidents: '@_L["NoIncidents"]',
+            close: '@_L["Close"]',
+            reply: '@_L["Reply"]',
+            error: '@_L["Error"]',
+            required: '@_L["Required"]',
+            replies: '@_L["Resolutions"]',
+            align: '@_L["Align"]',
+            low: '@_L["Low"]',
+            normal: '@_L["Normal"]',
+            emergency: '@_L["Emergency"]',
+            promerce_attachments: '@_L["Promerce Attachments"]',
+            invalid_username: '@_L["Invalid UserName"]',
+            invalid_password: '@_L["Invalid Password"]',
+            invalid_tenant: '@_L["Invalid Tenant"]'
+        };
+        function LocalizeJs(input) {
+            return localizedStrings.input;
+        }
+    </script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/api-engine.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/moment.min.js"></script>
     <script src="~/lib/noty/noty.min.js"></script>
+    @* <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/tinymce.min.js"></script> *@
+    <script src="~/lib/tinymce/tinymce.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    
 </body>
 </html>
