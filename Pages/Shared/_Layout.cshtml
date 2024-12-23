@@ -21,6 +21,7 @@
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body dir="@direction">
+    @User.Identity.IsAuthenticated
     <input type="hidden" id="hfculture" value="@culture" />
     @if (User.IsInRole("Admin"))
     {

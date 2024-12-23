@@ -31,11 +31,12 @@ function Login() {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        url: `/api/user/login`,
+        url: `/authentication/login`,
         type: 'POST',
         data: JSON.stringify(loginObject),
         dataType: 'json',
         success: function (response) {
+            console.log(response);
             if (response.loginResult == 'Ok') {
                 new Noty({
                     timeout: 1000,
